@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SL websites — Modern Web Solutions</title>
+  <meta name="description" content="SL websites — portfolio & services for building modern websites" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent1:#7c5cff;
+      --accent2:#00e0d0;
+      --glass: rgba(255,255,255,0.04);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.10), transparent 8%),
+                  radial-gradient(800px 400px at 90% 90%, rgba(0,224,208,0.06), transparent 6%),
+                  var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* layout */
+    .container{max-width:var(--maxw);margin:0 auto;padding:36px 20px}
+    header{
+      position:sticky;top:14px;z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      margin:0 auto;border-radius:12px;padding:10px;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:42px;height:42px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#0b1220;font-size:18px;
+      box-shadow:0 6px 18px rgba(124,92,255,0.12), inset 0 -4px 10px rgba(255,255,255,0.04);
+    }
+    .navlinks{display:flex;gap:16px;align-items:center}
+    .navlinks a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;font-size:14px}
+    .navlinks a:hover{color: #fff;background: rgba(255,255,255,0.02);transform:translateY(-2px)}
+    .cta{
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      padding:9px 14px;border-radius:10px;color:#071226;font-weight:700;text-decoration:none;
+      box-shadow:0 8px 18px rgba(7,18,38,0.5);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:30px;
+    }
+    .hero-left h1{
+      font-size:40px;margin:0 0 10px 0;line-height:1.02;
+      background: linear-gradient(90deg,#fff, #dbe9ff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero-left p{color:var(--muted);margin:0 0 18px 0;font-size:15px}
+    .hero-buttons{display:flex;gap:12px}
+    .btn{
+      padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.04);
+      background:transparent;color:#fff;cursor:pointer;
+    }
+    .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#071226;box-shadow:0 10px 30px rgba(7,18,38,0.55)}
+    /* animated mock phone */
+    .mock{
+      width:100%;max-width:420px;height:260px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+      border:1px solid rgba(255,255,255,0.03);box-shadow:0 20px 60px rgba(2,6,23,0.6);position:relative;overflow:hidden;
+    }
+    .screen{
+      position:absolute;inset:16px;border-radius:12px;background:linear-gradient(180deg,#071226, #081428);
+      display:flex;flex-direction:column;padding:14px;gap:8px;
+      transform:translateY(0);animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    .srow{display:flex;gap:8px;align-items:center}
+    .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.08)}
+    .mock-preview{flex:1;border-radius:10px;display:grid;place-items:center;color:var(--muted);font-size:13px}
+
+    /* sections */
+    section{margin-top:40px;padding:28px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);box-shadow:0 8px 24px rgba(2,6,23,0.45)}
+    .grid{display:grid;gap:18px}
+    .services{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .card{
+      background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.02));
+      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      transition:transform .36s cubic-bezier(.2,.9,.3,1),box-shadow .36s;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 30px 50px rgba(2,6,23,0.6)}
+    .card h3{margin:0 0 8px 0}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* projects & portfolio */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+    .project-card{position:relative;overflow:hidden;border-radius:12px;height:160px;background:linear-gradient(135deg, rgba(124,92,255,0.12), rgba(0,224,208,0.06));display:flex;flex-direction:column;justify-content:flex-end;padding:12px}
+    .project-card h4{margin:0;color:#fff}
+    .project-card p{margin:6px 0 0;color:rgba(255,255,255,0.85);font-size:13px}
+    .tag{display:inline-block;padding:6px 8px;border-radius:8px;background:rgba(0,0,0,0.2);font-size:12px;color:#fff;margin-top:8px}
+
+    /* portfolio images */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+    .port-item{height:110px;border-radius:10px;overflow:hidden;background-size:cover;background-position:center;cursor:pointer;position:relative}
+    .port-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.25))}
+    .port-item .p-title{position:absolute;left:10px;bottom:8px;font-weight:700;font-size:13px;color:#fff}
+
+    /* contact form */
+    .form{display:grid;gap:10px}
+    input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:#e6eef6;outline:none}
+    input:focus,textarea:focus{border-color:rgba(124,92,255,0.7);box-shadow:0 8px 30px rgba(124,92,255,0.06)}
+    .row{display:flex;gap:10px}
+    .row .col{flex:1}
+
+    footer{margin:28px 0 80px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    /* small screens */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      nav{padding:8px 6px}
+    }
+
+    /* reveal animations (simple) */
+    .reveal{opacity:0;transform:translateY(18px);transition:all .8s cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">
+        <div class="logo">SL</div>
+        <div>
+          <div style="font-weight:800">SL websites</div>
+          <div style="font-size:12px;color:var(--muted)">Design • Build • Deploy</div>
+        </div>
+      </div>
+
+      <div class="navlinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Hero">
+      <div class="hero-left">
+        <h1>Build fast, modern websites — for Sri Lanka and beyond</h1>
+        <p>Hi — I’m SL websites. I design responsive, animated, and fast websites for school projects, portfolios, and small businesses. Everything is lightweight and easy to host.</p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#services">Our Services</a>
+          <a class="btn" href="#portfolio">See Portfolio</a>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <div class="card" style="padding:10px;display:flex;gap:14px;align-items:center;max-width:420px">
+            <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:grid;place-items:center;font-weight:800;color:#071226">WL</div>
+            <div>
+              <div style="font-weight:700">Fast Deploy</div>
+              <div class="muted" style="font-size:13px">Host free on GitHub Pages</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mock" aria-hidden="true">
+        <div class="screen">
+          <div class="srow">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <div class="mock-preview">
+            <div style="text-align:center">
+              <div style="font-weight:800;font-size:18px;margin-bottom:6px">SL websites demo</div>
+              <div style="color:var(--muted);max-width:300px">Interactive demo — smooth animations, responsive layout, light-weight code.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <div style="display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <h2>About SL websites</h2>
+          <p class="muted">We create modern, accessible websites with clean code. Perfect for students, small businesses, and hobby projects. We focus on performance, simple animations, and easy maintenance.</p>
+          <ul style="color:var(--muted);margin-top:14px">
+            <li>Responsive — works on phones and desktops</li>
+            <li>Fast — small files and optimized assets</li>
+            <li>Easy to edit — plain HTML/CSS/JS</li>
+          </ul>
+        </div>
+
+        <div style="width:320px">
+          <div class="card">
+            <h3>Why choose us?</h3>
+            <p class="muted">You get a modern website without heavy tools. I’ll provide full source code and hosting steps so you can update it anytime.</p>
+            <div style="margin-top:10px">
+              <strong>Includes:</strong>
+              <div class="muted" style="font-size:13px">Design, HTML/CSS, basic JS, deployment instructions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="reveal">
+      <h2>Services</h2>
+      <div class="grid services" style="margin-top:10px">
+        <div class="card">
+          <h3>Website Build</h3>
+          <p class="muted">Custom static sites: portfolios, landing pages, project showcases.</p>
+        </div>
+        <div class="card">
+          <h3>Responsive Design</h3>
+          <p class="muted">Mobile-first layouts that adapt to all screens.</p>
+        </div>
+        <div class="card">
+          <h3>Animations & UI</h3>
+          <p class="muted">Subtle, modern animations for a polished look.</p>
+        </div>
+        <div class="card">
+          <h3>Deploy & Support</h3>
+          <p class="muted">Hosting help (GitHub Pages) and small updates when needed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+      <h2>Projects</h2>
+      <div class="projects-grid" style="margin-top:12px">
+        <div class="project-card" style="background-image: linear-gradient(135deg, rgba(124,92,255,0.14), rgba(0,224,208,0.06))">
+          <div>
+            <h4>School Expo Site</h4>
+            <p>Interactive single-page site for a school exhibition.</p>
+            <span class="tag">HTML • CSS • JS</span>
+          </div>
+        </div>
+
+        <div class="project-card" style="background-image: linear-gradient(135deg, rgba(0,224,208,0.08), rgba(124,92,255,0.06))">
+          <div>
+            <h4>Portfolio Template</h4>
+            <p>Personal portfolio template for creators and students.</p>
+            <span class="tag">Responsive</span>
+          </div>
+        </div>
+
+        <div class="project-card" style="background-image: linear-gradient(135deg, rgba(124,92,255,0.06), rgba(0,224,208,0.10))">
+          <div>
+            <h4>Robotics Project Page</h4>
+            <p>Project pages with code samples and wiring diagrams.</p>
+            <span class="tag">Docs</span>
+          </div>
+        </div>
+
+        <div class="project-card" style="background-image: linear-gradient(135deg, rgba(0,224,208,0.06), rgba(124,92,255,0.02))">
+          <div>
+            <h4>Small Business Landing</h4>
+            <p>Simple conversion-focused landing pages.</p>
+            <span class="tag">Landing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="reveal">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid" style="margin-top:12px">
+        <div class="port-item" style="background-image:url('https://picsum.photos/id/1015/600/400');" data-title="Expo Landing"></div>
+        <div class="port-item" style="background-image:url('https://picsum.photos/id/1025/600/400');" data-title="Portfolio"></div>
+        <div class="port-item" style="background-image:url('https://picsum.photos/id/1035/600/400');" data-title="Robotics Docs"></div>
+        <div class="port-item" style="background-image:url('https://picsum.photos/id/1003/600/400');" data-title="Business Landing"></div>
+        <div class="port-item" style="background-image:url('https://picsum.photos/id/1011/600/400');" data-title="Gallery"></div>
+        <div class="port-item" style="background-image:url('https://picsum.photos/id/1016/600/400');" data-title="App Mock"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <h2>Contact / Get a Quote</h2>
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px">
+        <div>
+          <form id="contactForm" class="form" onsubmit="return handleSubmit(event)">
+            <input type="text" name="name" id="name" placeholder="Your name" required>
+            <input type="email" name="email" id="email" placeholder="Your email" required>
+            <input type="text" name="subject" id="subject" placeholder="Subject (eg. School website)" required>
+            <textarea name="message" id="message" rows="5" placeholder="Tell me about your project" required></textarea>
+            <div style="display:flex;gap:12px">
+              <button class="btn primary" type="submit">Send Request</button>
+              <button class="btn" type="button" onclick="downloadSpec()">Download Spec</button>
+            </div>
+            <div id="formMsg" style="color:var(--muted);font-size:13px;margin-top:8px"></div>
+          </form>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Contact Info</h3>
+            <p class="muted">Prefer email for project details. Include a short description and any files or sketches.or you can contact us this Whatsapp number.NOTE!:You should pay a small advance price before create your website</p>
+            <p style="margin-top:10px"><strong>Email:</strong> <a href="mailto:thaminduthisum@gmail.com" style="color:inherit">hello@slwebsites.example</a></p>
+            <p style="margin-top:10px"><strong>Whatsapp:</strong> <a href="+94 71 633 14 63" style="color:inherit">+94 71 633 14 63</a></p>
+            <p><strong>Based in:</strong> Sri Lanka</p>
+            <p class="muted" style="margin-top:10px">Want me to set this site up for you on GitHub Pages? I’ll include step-by-step help.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> SL websites — Built with simple HTML, CSS & JS
+    </footer>
+
+  </main>
+
+  <!-- light JS: scroll reveal, port click, form demo and download spec -->
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const onScroll = () => {
+      const top = window.innerHeight;
+      revealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < top - 60) el.classList.add('visible');
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+
+    // portfolio item click -> open simple modal (browser built-in)
+    document.querySelectorAll('.port-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const url = item.style.backgroundImage.slice(5,-2);
+        const title = item.dataset.title || 'Project';
+        // open in new tab the image (simple lightbox alternative)
+        window.open(url, '_blank');
+      });
+    });
+
+    // fake form submit behavior (since we don't have a backend)
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subj = document.getElementById('subject').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const el = document.getElementById('formMsg');
+      if(!name||!email||!subj||!msg){ el.textContent = 'Please fill all fields.'; return false;}
+      el.textContent = 'Thanks! This demo doesn’t send emails. For a real project, I can set up email forwarding or connect to a form service.';
+      // open prefilled email (mailto)
+      const mailto = `mailto:hello@slwebsites.example?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent('Name: '+name+'\\nEmail: '+email+'\\n\\n'+msg)}`;
+      window.location.href = mailto;
+      return false;
+    }
+
+    // download a tiny project spec file
+    function downloadSpec(){
+      const txt = `Project spec - SL websites\n\nTitle: \nScope:\n- Pages: Home, About, Services, Projects, Portfolio, Contact\n- Responsive design\n- Animations: subtle\nNotes:\n- Host on GitHub Pages\n`;
+      const blob = new Blob([txt], {type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'SL-websites-spec.txt';
+      document.body.appendChild(a); a.click();
+      a.remove(); URL.revokeObjectURL(url);
+    }
+
+    // smooth scrolling for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          const target = document.querySelector(id);
+          if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
